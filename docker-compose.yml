@@ -131,6 +131,7 @@ services:
   # https://hub.docker.com/r/hopsoft/graphite-statsd/
   statsd:
     image: hopsoft/graphite-statsd
+    container_name: socorro_statsd_1
     ports:
       - "8080:80"
       - "2003-2004:2003-2004"
@@ -142,6 +143,7 @@ services:
   # Note: This image is deprecated, but the new one requires fiddling.
   elasticsearch:
     image: mozilla/socorro_elasticsearch:1.4.5
+    container_name: socorro_elasticsearch_1
     ports:
       - "9200:9200"
       - "9300:9300"
@@ -149,6 +151,7 @@ services:
   # https://hub.docker.com/_/rabbitmq/
   rabbitmq:
     image: rabbitmq:3.6.9
+    container_name: socorro_rabbitmq_1
     environment:
       - RABBITMQ_DEFAULT_USER=rabbituser
       - RABBITMQ_DEFAULT_PASS=rabbitpwd
@@ -157,6 +160,7 @@ services:
   # https://hub.docker.com/_/postgres/
   postgresql:
     image: postgres:9.4
+    container_name: socorro_postgresql_1
     ports:
       - "8574:5432"
     environment:
